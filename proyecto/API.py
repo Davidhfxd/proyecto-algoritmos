@@ -14,9 +14,9 @@ datos = datos.lower().split("\n")
 
 for i in range(0,len(datos)):
     for j in range(0,len(datos)):
-        if datos[i]==datos[j]:
+        if datos[i]==datos[j]:#en el caso que las estaciones sean iguales se ingrese cero
             SE.Grafo(datos[i],datos[j],0)
-        else:
+        else:#en el caso que sean distintas
             url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Metro%metro+"+str(datos[i])+",region+metropolitana"+"&destinations=Metro%metro+"+str(datos[j])+",region+metropolitana"+"&key=AIzaSyD_VKKZ2ZyZIJ9DaBto4IpK2Z8lj2HInJ0"
             response = requests.get(url)
             json_response = response.json()
